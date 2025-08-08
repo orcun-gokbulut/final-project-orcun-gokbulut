@@ -1,0 +1,1 @@
+savedcmd_/home/orcun/Coursera/embedded-linux/final-project-orcun-gokbulut/sources/module/1602a.mod := printf '%s\n'   main.o | awk '!x[$$0]++ { print("/home/orcun/Coursera/embedded-linux/final-project-orcun-gokbulut/sources/module/"$$0) }' > /home/orcun/Coursera/embedded-linux/final-project-orcun-gokbulut/sources/module/1602a.mod
