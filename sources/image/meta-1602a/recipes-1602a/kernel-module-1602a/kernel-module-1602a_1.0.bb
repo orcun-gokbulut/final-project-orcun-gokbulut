@@ -3,8 +3,8 @@ DESCRIPTION = "Recipe created by bitbake-layers"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-FILESEXTRAPATHS_prepend := "${TOPDIR}/../../sources:"
-SRC_URI = "file://module/"
+LOCAL_SRC_DIR = "${TOPDIR}/../../sources/module"
+require prepare-local-sources.inc
 
 inherit module
 
