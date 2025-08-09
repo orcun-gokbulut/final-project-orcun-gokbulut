@@ -10,15 +10,18 @@ EXTRA_CFLAGS += $(DEBFLAGS)
 ifneq ($(KERNELRELEASE),)
 
 obj-m	:= 1602a.o
-1602a-y := main.o
+1602a-y := 1602a_main.o
 
 else
 
-KERNELDIR ?= /lib/modules/$(shell uname -r)/build
-PWD       := $(shell pwd)
+KERNEL_PATH ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+	$(MAKE) -C $(KERNEL_PATH) M=$(PWD) modules
+
+modules_install:
+	$(MAKE) -C $(KERNEL_PATH) M=$(PWD) modules_install
 
 endif
 
