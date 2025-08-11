@@ -1,0 +1,29 @@
+{
+    "files.associations": {
+        "types.h": "c",
+        "1602a_interface.h": "c",
+        "module.h": "c",
+        "cdev.h": "c",
+        "fs.h": "c",
+        "kobject.h": "c",
+        "device.h": "c",
+        "list.h": "c",
+        "sysfs.h": "c",
+        "kernfs.h": "c",
+        "mutex.h": "c",
+        "processor.h": "c",
+        "semaphore.h": "c",
+        "rwlock.h": "c",
+        "sched.h": "c",
+        "*.conf": "bitbake",
+        "*.inc": "bitbake",
+        "type_traits": "c",
+        "lcd1602a_interface.h": "c",
+        "bitwise_ops.h": "c",
+        "kthread.h": "c",
+        "lcd1602a_device.h": "c",
+        "bcm2711_gpio_registers.h": "c"
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/sources/utility",
+    "cmake.buildDirectory": "${workspaceFolder}/build/utility"
+}

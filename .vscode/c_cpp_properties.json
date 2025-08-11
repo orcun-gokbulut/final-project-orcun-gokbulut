@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+
+                "${workspaceFolder}/sources/**",
+                "/lib/modules/6.8.0-*/build/include",
+                "/lib/modules/6.8.0-*/build/arch/arm64/include"
+            ],
+            "defines": [
+                "KERNEL",
+                "ARCH=arm64"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compileCommands": "${workspaceFolder}/build/utility/compile_commands.json"
+        }
+    ],
+    "version": 4
+}
