@@ -9,8 +9,8 @@ EXTRA_CFLAGS += $(DEBFLAGS)
 
 ifneq ($(KERNELRELEASE),)
 
-obj-m	:= 1602a.o
-1602a-y := 1602a_main.o
+obj-m += lcd1602a.o
+lcd1602a-y := lcd1602a_main.o lcd1602a_interface.o lcd1602a_device.o bcm2711_gpio_registers.o bitwise_ops.o
 
 else
 
@@ -23,7 +23,15 @@ modules:
 modules_install:
 	$(MAKE) -C $(KERNEL_PATH) M=$(PWD) modules_install
 
-endif
-
 clean:
-	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c *.symvers *.order *.mod .tmp_versions
+	$(MAKE) -C $(KERNEL_PATH) M=$(PWD) clean
+
+PHONY:load
+load: modules
+	sudo $(PWD)/lcd1602a.sh start
+
+.PHONY: unload
+unload:
+	sudo $(PWD)/lcd1602a.sh stop
+
+endif

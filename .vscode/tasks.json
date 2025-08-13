@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Module-Build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C", "${workspaceFolder}/sources/module",
+                "modules"
+            ],
+            "problemMatcher": "$gcc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Module-Clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C", "${workspaceFolder}/sources/module",
+                "clean"
+            ]
+        },
+        {
+            "label": "Module-Load",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C", "${workspaceFolder}/sources/module",
+                "load"
+            ],
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Module-Unload",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-C", "${workspaceFolder}/sources/module",
+                "unload"
+            ],
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
