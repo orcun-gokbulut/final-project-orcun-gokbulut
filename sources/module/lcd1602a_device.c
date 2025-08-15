@@ -96,7 +96,7 @@ static ssize_t lcd1602a_device_write(struct file* filp, const char __user* buffe
     if (lcd1602a_device.buffer_size + count >= LCD1602A_DEVICE_BUFFER_SIZE)
         count -= LCD1602A_DEVICE_BUFFER_SIZE - lcd1602a_device.buffer_size;
 
-    if (copy_from_user(lcd1602a_device.buffer + lcd1602a_device.buffer_size, buffer, count) != count)
+    if (copy_from_user(lcd1602a_device.buffer + lcd1602a_device.buffer_size, buffer, count) != 0)
     {
         mutex_unlock(&lcd1602a_device.buffer_mutex);
         return -EFAULT;
@@ -140,13 +140,15 @@ bool lcd1602a_device_initialize(void)
 
     mutex_init(&lcd1602a_device.buffer_mutex);
 
-    lcd1602a_device.io_thread = kthread_run(&lcd1602_device_io_thread, 0, "klcd1602a_io/0");
+    lcd1602a_device.io_thread = kthread_create(&lcd1602_device_io_thread, 0, "klcd1602a_io/0");
     if (lcd1602a_device.io_thread == NULL)
     {
         mutex_destroy(&lcd1602a_device.buffer_mutex);
         cdev_del(&lcd1602a_device.character_device);
         unregister_chrdev_region(lcd1602a_device.device_number, 1);
     }
+
+    wake_up_process(lcd1602a_device.io_thread);
 
     return true;
 }

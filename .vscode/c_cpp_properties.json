@@ -5,8 +5,8 @@
             "includePath": [
 
                 "${workspaceFolder}/sources/**",
-                "/lib/modules/6.8.0-*/build/include",
-                "/lib/modules/6.8.0-*/build/arch/arm64/include"
+                "/lib/modules/*/build/include",
+                "/lib/modules/*/build/arch/arm64/include"
             ],
             "defines": [
                 "KERNEL",
